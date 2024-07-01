@@ -12,7 +12,30 @@ const CycleCard = ({ _id, brand, price, image, count }) => {
         axios.patch(`http://localhost:5000/cycles/rent/${_id}`)
             .then(response => {
                 console.log('Cycle rented successfully:', response.data);
+                window.location.reload();
+
                 // Optionally handle success (update UI, etc.)
+                const showDialogueBox = () => {
+                    const dialogueBox = document.createElement('div');
+                    dialogueBox.style.position = 'fixed';
+                    dialogueBox.style.top = '50%';
+                    dialogueBox.style.left = '50%';
+                    dialogueBox.style.transform = 'translate(-50%, -50%)';
+                    dialogueBox.style.backgroundColor = 'white';
+                    dialogueBox.style.color = 'black';
+                    dialogueBox.style.padding = '20px';
+                    dialogueBox.style.borderRadius = '5px';
+                    dialogueBox.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.2)';
+                    dialogueBox.innerText = 'Cyclever rented successfully';
+
+                    document.body.appendChild(dialogueBox);
+
+                    setTimeout(() => {
+                        document.body.removeChild(dialogueBox);
+                    }, 2000);
+                };
+
+                showDialogueBox();
             })
             .catch(error => {
                 console.error('Error renting cycle:', error);
