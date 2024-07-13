@@ -1,0 +1,92 @@
+/* styles.css */
+
+.card {
+    background-color: #fff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.button {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #000000;
+}
+
+.button:disabled {
+    background-color: #000000;
+    cursor: not-allowed;
+}
+
+.price {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6c757d;
+    margin-top: 0.5rem;
+}
+
+.text {
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #fff;
+}
+
+.branding {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+}
+
+.grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.background {
+    background-color: #fff;
+    color: #212529;
+    min-height: 100vh;
+}
+
+.primary-foreground {
+    color: #000;
+}

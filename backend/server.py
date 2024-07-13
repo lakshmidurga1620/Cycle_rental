@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request, abort
-from flask_cors import CORS
-from pymongo import MongoClient
-from bson import ObjectId
+from flask_cors import CORS # type: ignore
+from pymongo import MongoClient # type: ignore
+from bson import ObjectId # type: ignore
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": [
+    "http://localhost:3000",
+]}})
 
 # Connect to MongoDB
 client = MongoClient('mongodb://localhost:27017/')
@@ -41,5 +43,5 @@ def get_cycles():
     return jsonify(cycles)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8080)
         
