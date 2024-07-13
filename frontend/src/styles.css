@@ -1,149 +1,171 @@
-/* styles.css */
-
-.card {
-    background-color: #fff;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: relative;
-    transition: transform 0.3s ease-in-out;
+/* General styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.card:hover {
-    transform: scale(1.05);
-}
-
-.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-    color: #fff;
-    border-radius: 0.5rem;
-    padding: 0.5rem;
-    width: 100%;
-    margin-top: 0.5rem;
-}
-
-.button {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    background-color: #000;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.button:hover {
-    background-color: #000000;
-}
-
-.button:disabled {
-    background-color: #000000;
-    cursor: not-allowed;
-}
-
-.price {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #6c757d;
-    margin-top: 0.5rem;
-}
-
-.text {
-    font-size: 1.125rem;
-    font-weight: 500;
-    margin-top: 0.25rem;
-}
-
+/* Navbar styles */
 .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #fff;
 }
 
 .branding {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #000;
-    cursor: pointer;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
 }
 
+/* Grid container styles */
 .grid-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-    padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
 }
 
+/* Background and foreground styles */
 .background {
-    background-color: #fff;
-    color: #212529;
-    min-height: 100vh;
+  background-color: #fff;
+  color: #212529;
+  min-height: 100vh;
 }
 
 .primary-foreground {
-    color: #000;
+  color: #000;
 }
+
+/* Card styles */
+.card {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Image styles */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain; /* Changed to 'contain' to prevent cropping */
+}
+
+/* Card content styles */
+.p-4 {
+  padding: 1rem;
+}
+
+.text {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+.price {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6c757d;
+  margin-top: 0.5rem;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.button {
+  width: 100%; /* Make the button take full width */
+  padding: 1rem; /* Increase padding for larger button */
+  border-radius: 0.5rem;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #333;
+}
+
+.button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+/* Auth container styles */
 .auth-container {
-    max-width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-  
-  .auth-title {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .auth-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .auth-input {
-    margin-bottom: 10px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  .auth-button {
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .auth-button:hover {
-    background-color: #555;
-  }
-  
-  .auth-error {
-    color: #ff0000;
-    text-align: center;
-    margin-top: 10px;
-  }
-  
-  .auth-switch {
-    text-align: center;
-    margin-top: 15px;
-    color: #333;
-    cursor: pointer;
-  }
-  
-  .auth-switch:hover {
-    text-decoration: underline;
-  }
+  max-width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.auth-title {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-input {
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.auth-button {
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #555;
+}
+
+.auth-error {
+  color: #ff0000;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.auth-switch {
+  text-align: center;
+  margin-top: 15px;
+  color: #333;
+  cursor: pointer;
+}
+
+.auth-switch:hover {
+  text-decoration: underline;
+}
