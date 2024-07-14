@@ -10,7 +10,7 @@ const Auth = ({ setToken }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(''); // Clear any previous errors
+    setError('');
 
     try {
       const endpoint = isLogin ? '/login' : '/signup';
@@ -29,33 +29,45 @@ const Auth = ({ setToken }) => {
   };
 
   return (
-    <div className="auth-container">
-      <h2 className="auth-title">{isLogin ? 'Login' : 'Sign Up'}</h2>
-      <form onSubmit={handleSubmit} className="auth-form">
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-          className="auth-input"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          className="auth-input"
-        />
-        <button type="submit" className="auth-button">{isLogin ? 'Login' : 'Sign Up'}</button>
-      </form>
-      {error && <p className="auth-error">{error}</p>}
-      <p className="auth-switch" onClick={() => setIsLogin(!isLogin)}>
-        {isLogin ? 'Need an account? Sign up' : 'Already have an account? Login'}
-      </p>
+    <div className="auth-page">
+      <div className="auth-left">
+        <video autoPlay loop muted className="background-video">
+          <source src={process.env.PUBLIC_URL + '/videos/cycling-video.mp4'} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div className="auth-right">
+      <img src={process.env.PUBLIC_URL + '/images/logo.png'} alt="Logo" className="auth-logo" />
+        <h2 className="branding">Cycle Rental Club</h2>
+        <div className="auth-tile">
+          <h2 className="auth-title">{isLogin ? 'Login' : 'Sign Up'}</h2>
+          <form onSubmit={handleSubmit} className="auth-form">
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+              className="auth-input"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="auth-input"
+            />
+            <button type="submit" className="auth-button">{isLogin ? 'Login' : 'Sign Up'}</button>
+          </form>
+          {error && <p className="auth-error">{error}</p>}
+          <p className="auth-switch" onClick={() => setIsLogin(!isLogin)}>
+            {isLogin ? 'Need an account? Sign up' : 'Already have an account? Login'}
+          </p>
+        </div>
+      </div>
     </div>
   );
-};
-
+}
 export default Auth;
+

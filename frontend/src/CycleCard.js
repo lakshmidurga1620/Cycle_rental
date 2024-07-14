@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import './styles.css';
 
-const CycleCard = ({ _id, brand, price, image, count, token }) => {
+const CycleCard = ({ _id, brand, price, image, count, token, updateCycleCount }) => {
   const handleRentButtonClick = () => {
     axios.patch(`http://localhost:8080/cycles/rent/${_id}`, {}, {
       headers: {
@@ -11,11 +11,12 @@ const CycleCard = ({ _id, brand, price, image, count, token }) => {
     })
       .then(response => {
         console.log('Cycle rented successfully:', response.data);
-        window.location.reload();
+        // Update the count in the parent component
+        updateCycleCount(_id, response.data.count);
       })
       .catch(error => {
         console.error('Error renting cycle:', error);
-        // Handle error (display message, etc.)
+        alert('Failed to rent the cycle. Please try again later.');
       });
   };
 

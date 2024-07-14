@@ -7,13 +7,13 @@ const CycleRental = ({ token, setToken }) => {
   const [cycles, setCycles] = useState([]);
 
   useEffect(() => {
-    // Fetch cycles data from API
     axios.get('http://localhost:8080/cycles')
       .then(response => {
         setCycles(response.data);
       })
       .catch(error => {
         console.error('Error fetching cycles:', error);
+        alert('Failed to fetch cycles. Please try again later.');
       });
   }, []);
 
@@ -21,17 +21,30 @@ const CycleRental = ({ token, setToken }) => {
     setToken(null);
   };
 
+  const updateCycleCount = (cycleId, newCount) => {
+    setCycles(prevCycles =>
+      prevCycles.map(cycle =>
+        cycle._id === cycleId ? { ...cycle, count: newCount } : cycle
+      )
+    );
+  };
+
   return (
     <div className="background primary-foreground">
       <nav className="navbar">
         <a href="/" className="branding">
-          Cycle Rental System
+          Cycle Rental Club
         </a>
         <button onClick={handleLogout} className="logout-button">Logout</button>
       </nav>
       <div className="grid-container">
         {cycles.map(cycle => (
-          <CycleCard key={cycle._id} {...cycle} token={token} />
+          <CycleCard 
+            key={cycle._id} 
+            {...cycle} 
+            token={token} 
+            updateCycleCount={updateCycleCount}
+          />
         ))}
       </div>
     </div>
