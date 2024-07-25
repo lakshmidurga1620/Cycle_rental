@@ -1,0 +1,30 @@
+[{
+  "_id": {
+    "$oid": "667947c4432f167cc4773ce6"
+  },
+  "brand": "AHOY",
+  "price": "Rs. 150/day",
+  "image": "/images/cycle1.jpg",
+  "available": 0,
+  "count": 4
+},
+{
+  "_id": {
+    "$oid": "66794a91432f167cc4773ce8"
+  },
+  "brand": "Urban Terrain",
+  "price": "Rs. 300/day",
+  "image": "/images/cycle2.jpg",
+  "available": 0,
+  "count": 0
+},
+{
+  "_id": {
+    "$oid": "66794aa0432f167cc4773cea"
+  },
+  "brand": "GHM",
+  "price": "Rs. 500/day",
+  "image": "/images/cycle3.jpg",
+  "available": 1,
+  "count": 5
+}]
