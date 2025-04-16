@@ -7,6 +7,9 @@ import jwt # type: ignore
 import datetime
 
 app = Flask(__name__)
+@app.route('/')
+def home():
+    return "🚴‍♂️ Cycle Rental Backend is running!"
 CORS(app, resources={r"/*": {"origins": ["http://localhost:3000"]}})
 
 # Connect to MongoDB
@@ -108,4 +111,10 @@ def get_cycles():
 # ... rest of your code ...
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8080)
+    app.run(
+        debug=True,
+        host='127.0.0.1',
+        port=5050,
+        use_reloader=False  # 🔥 THIS disables the crashing reloader
+    )
+
